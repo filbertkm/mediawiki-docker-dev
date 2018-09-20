@@ -40,6 +40,13 @@ Either on your host machine or with Docker, inside the `/srv/dev/git/gerrit/medi
 docker run -it --rm --user $(id -u):$(id -g) -v ~/.composer:/tmp -v $(pwd):/app docker.io/composer install
 ```
 
+or from host machine, after running ./up:
+
+```
+docker exec --user $(id -u):$(id -g) -it mediawiki-docker-dev_web_1 /bin/bash
+cd /var/www/mediawiki && composer install
+```
+
 #### 5) Create a basic LocalSettings.php
 
 The .docker/LocalSettings.php file will exist within the containers running Mediawiki.
